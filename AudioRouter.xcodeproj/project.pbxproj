@@ -15,6 +15,8 @@
 		FE1B70920CE5331400EA03CC /* SnmpSession.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1B70910CE5331400EA03CC /* SnmpSession.m */; };
 		FE1B70950CE5334400EA03CC /* UiController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1B70940CE5334400EA03CC /* UiController.m */; };
 		FE94B21317F100A800692548 /* libnetsnmp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FE94B21217F100A800692548 /* libnetsnmp.dylib */; };
+		FEE1AFCC17F2213B00241A06 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEE1AFCB17F2213B00241A06 /* Preferences.xib */; };
+		FEE1AFD117F2245700241A06 /* PrefController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE1AFD017F2245700241A06 /* PrefController.m */; };
 		FEE59B0B17F104ED00F4A3D7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEE59B0917F104ED00F4A3D7 /* MainMenu.xib */; };
 		FEFEC0060D059365009894DF /* Console.icns in Resources */ = {isa = PBXBuildFile; fileRef = FEFEC0050D059365009894DF /* Console.icns */; };
 /* End PBXBuildFile section */
@@ -36,6 +38,9 @@
 		FE1B70930CE5334400EA03CC /* UiController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UiController.h; sourceTree = "<group>"; };
 		FE1B70940CE5334400EA03CC /* UiController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UiController.m; sourceTree = "<group>"; };
 		FE94B21217F100A800692548 /* libnetsnmp.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libnetsnmp.dylib; path = ../../../../../usr/lib/libnetsnmp.dylib; sourceTree = "<group>"; };
+		FEE1AFCB17F2213B00241A06 /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
+		FEE1AFCF17F2245700241A06 /* PrefController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefController.h; sourceTree = "<group>"; };
+		FEE1AFD017F2245700241A06 /* PrefController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefController.m; sourceTree = "<group>"; };
 		FEE59B0A17F104ED00F4A3D7 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		FEFEC0050D059365009894DF /* Console.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Console.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,6 +65,8 @@
 				FE1B70940CE5334400EA03CC /* UiController.m */,
 				FE1B70900CE5331400EA03CC /* SnmpSession.h */,
 				FE1B70910CE5331400EA03CC /* SnmpSession.m */,
+				FEE1AFCF17F2245700241A06 /* PrefController.h */,
+				FEE1AFD017F2245700241A06 /* PrefController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -121,6 +128,7 @@
 				FEFEC0050D059365009894DF /* Console.icns */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				FEE1AFCB17F2213B00241A06 /* Preferences.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -193,6 +201,7 @@
 				FEE59B0B17F104ED00F4A3D7 /* MainMenu.xib in Resources */,
 				FEFEC0060D059365009894DF /* Console.icns in Resources */,
 				FE0B873B0D10302100B648F0 /* Network.plist in Resources */,
+				FEE1AFCC17F2213B00241A06 /* Preferences.xib in Resources */,
 				FE0B874D0D10321600B648F0 /* OIDStrings.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEE1AFD117F2245700241A06 /* PrefController.m in Sources */,
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				FE1B70920CE5331400EA03CC /* SnmpSession.m in Sources */,
 				FE1B70950CE5334400EA03CC /* UiController.m in Sources */,
@@ -245,7 +255,7 @@
 				GCC_PREFIX_HEADER = AudioRouter_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = AudioRouter;
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
@@ -263,7 +273,7 @@
 				GCC_PREFIX_HEADER = AudioRouter_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = AudioRouter;
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;

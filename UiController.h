@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import	"SnmpSession.h"
 
+@class PrefController;
 
 @interface UiController : NSObject {
 	
@@ -25,6 +26,7 @@
 	IBOutlet id aDelayCheckBox;
 	IBOutlet id vDelayPopUp;
 	SnmpSession *session;
+    PrefController *prefController;
 }
 
 - (IBAction)center:(id)sender;
@@ -37,6 +39,8 @@
 - (IBAction)subWoofer:(id)sender;
 - (IBAction)aDelay:(id)sender;
 - (IBAction)vDelay:(id)sender;
+
+-(IBAction)showPreferencePanel:(id)sender;
 
 - (void)update;
 

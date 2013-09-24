@@ -7,6 +7,7 @@
 //
 
 #import "UiController.h"
+#import "PrefController.h"
 
 @implementation UiController
 static NSDictionary * network;
@@ -21,6 +22,7 @@ static NSString * slot;
 - (void)awakeFromNib{
 	defaults = [NSUserDefaults standardUserDefaults];
 	[[statusField window]setFrameAutosaveName:@"controllerWindow"];	// save and restore the location of the window
+    
 	network = [NSDictionary dictionaryWithContentsOfFile:[[[NSBundle mainBundle] bundlePath]
 														  stringByAppendingString:@"/Contents/Resources/Network.plist"]];
 	if (network == nil)
@@ -204,6 +206,17 @@ static NSString * slot;
 	[session setOidIntValue:[[OIDStrings objectForKey:@"videoDelayOID"] stringByAppendingString:slot]
 					  value:[sender indexOfSelectedItem]];
 	
+}
+
+#pragma mark -
+#pragma mark Menu Methods
+
+- (IBAction)showPreferencePanel:(id)sender
+{
+	if (!prefController) {
+		prefController = [[PrefController alloc] init];
+	}
+	[prefController showWindow:self];
 }
 
 @end
