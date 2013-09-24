@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ch1ADelayOID</key>
+	<string>1.3.6.1.4.1.6827.50.17.3.1.1.3.1</string>
+	<key>ch1ARouteOID</key>
+	<string>1.3.6.1.4.1.6827.50.17.3.8.1.2.1</string>
+	<key>ch1BDelayOID</key>
+	<string>1.3.6.1.4.1.6827.50.17.3.1.1.3.2</string>
+	<key>ch1BRouteOID</key>
+	<string>1.3.6.1.4.1.6827.50.17.3.8.1.2.2</string>
+	<key>ch2ADelayOID</key>
+	<string>1.3.6.1.4.1.6827.50.17.3.1.1.3.3</string>
+	<key>ch2ARouteOID</key>
+	<string>1.3.6.1.4.1.6827.50.17.3.8.1.2.3</string>
+	<key>ch2BDelayOID</key>
+	<string>1.3.6.1.4.1.6827.50.17.3.1.1.3.4</string>
+	<key>ch2BRouteOID</key>
+	<string>1.3.6.1.4.1.6827.50.17.3.8.1.2.4</string>
+	<key>ch3ADelayOID</key>
+	<string>1.3.6.1.4.1.6827.50.17.3.1.1.3.5</string>
+	<key>ch3ARouteOID</key>
+	<string>1.3.6.1.4.1.6827.50.17.3.8.1.2.5</string>
+	<key>ch3BDelayOID</key>
+	<string>1.3.6.1.4.1.6827.50.17.3.1.1.3.6</string>
+	<key>ch3BRouteOID</key>
+	<string>1.3.6.1.4.1.6827.50.17.3.8.1.2.6</string>
+	<key>ch4ADelayOID</key>
+	<string>1.3.6.1.4.1.6827.50.17.3.1.1.3.7</string>
+	<key>ch4ARouteOID</key>
+	<string>1.3.6.1.4.1.6827.50.17.3.8.1.2.7</string>
+	<key>ch4BDelayOID</key>
+	<string>1.3.6.1.4.1.6827.50.17.3.1.1.3.8</string>
+	<key>ch4BRouteOID</key>
+	<string>1.3.6.1.4.1.6827.50.17.3.8.1.2.8</string>
+	<key>slotNumber</key>
+	<string>.3</string>
+	<key>note_edit_1_slotNumber</key>
+	<string>.3</string>
+	<key>note_edit_2_slotNumber</key>
+	<string>.3</string>
+	<key>note_inferno_slotNumber</key>
+	<string>.5</string>
+	<key>msDelay</key>
+	<string>66</string>
+	<key>videoDelayOID</key>
+	<string>1.3.6.1.4.1.6827.50.17.3.7.1.2</string>
+</dict>
+</plist>
