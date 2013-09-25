@@ -318,7 +318,7 @@
                             </menuItem>
                             <menuItem title="Preferences..." keyEquivalent=";" id="VeQ-iy-MKx">
                                 <connections>
-                                    <action selector="showPreferencePanel:" target="207" id="c6S-8p-yCA"/>
+                                    <action selector="showPreferencePanel:" target="207" id="cBE-V9-fcK"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="144">

@@ -23,6 +23,16 @@ static NSString * slot;
 	defaults = [NSUserDefaults standardUserDefaults];
 	[[statusField window]setFrameAutosaveName:@"controllerWindow"];	// save and restore the location of the window
     
+    NSString *slotPrefix = @".";
+    NSString *slotNumber = [defaults objectForKey:@"slot"];
+    if (slotNumber == nil) {
+        if (!prefController) {
+            prefController = [[PrefController alloc] init];
+        }
+        [prefController showWindow:self];
+    }
+    slot = [slotPrefix stringByAppendingString:slotNumber];
+
 	network = [NSDictionary dictionaryWithContentsOfFile:[[[NSBundle mainBundle] bundlePath]
 														  stringByAppendingString:@"/Contents/Resources/Network.plist"]];
 	if (network == nil)
@@ -46,7 +56,7 @@ static NSString * slot;
 	{
 		[OIDStrings retain];
 	}
-	slot = [OIDStrings objectForKey:@"slotNumber"];
+//	slot = [OIDStrings objectForKey:@"slotNumber"];
 	
 	NSArray * inputs = ([NSArray arrayWithObjects:@"Ch 1", @"Ch 2", @"Ch 3", @"Ch 4",
 						 @"Ch 5", @"Ch 6", @"Ch 7", @"Ch 8", NULL]);
@@ -71,7 +81,9 @@ static NSString * slot;
 	[rightTotalPopUp addItemsWithTitles:inputs];
 	
 	NSString *community = [network objectForKey:@"community"];
-	NSString *host = [network objectForKey:@"host"];
+//	NSString *host = [network objectForKey:@"host"];
+    NSString *host = [defaults objectForKey:@"ipAddress"];
+    
 	[session release];
 	session = [[SnmpSession alloc] initWithHost:host
 									  community:community];

@@ -13,7 +13,7 @@
     IBOutlet NSTextField *ipAddress;
     IBOutlet NSTextField *slot;
 }
-
 @property (assign) IBOutlet NSTextField *ipAddress;
 @property (assign) IBOutlet NSTextField *slot;
+
 @end
