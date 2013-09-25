@@ -11,10 +11,10 @@
         <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" wantsToBeColor="NO" animationBehavior="default" id="1">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="171" y="345" width="302" height="102"/>
+            <rect key="contentRect" x="171" y="345" width="336" height="102"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
             <view key="contentView" autoresizesSubviews="NO" id="2">
-                <rect key="frame" x="0.0" y="0.0" width="302" height="102"/>
+                <rect key="frame" x="0.0" y="0.0" width="336" height="102"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ghO-ey-2XT">
@@ -27,7 +27,7 @@
                         </textFieldCell>
                     </textField>
                     <textField autoresizesSubviews="NO" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hp3-Rg-vqY">
-                        <rect key="frame" x="105" y="60" width="176" height="22"/>
+                        <rect key="frame" x="105" y="60" width="211" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="LPh-uK-KhL">
                             <font key="font" metaFont="system"/>
@@ -59,6 +59,17 @@
                             <binding destination="t5O-AE-H2e" name="value" keyPath="values.slot" id="DcM-Bt-Ybj"/>
                         </connections>
                     </textField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oRb-ZT-HYs">
+                        <rect key="frame" x="253" y="13" width="69" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="drr-jd-AyS">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="save:" target="t5O-AE-H2e" id="cTH-Vt-IX6"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
         </window>
