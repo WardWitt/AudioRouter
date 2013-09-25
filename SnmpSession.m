@@ -59,6 +59,7 @@ char *errorString;
 			break;
 		default:
 			NSLog(@"Unsupported datatype 0x%02x for \"%@\"", var->type, oidStr);
+            result = @"Error";
 			break;
 	}
 	snmp_free_pdu(response);

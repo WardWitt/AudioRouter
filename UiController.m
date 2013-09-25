@@ -10,7 +10,6 @@
 #import "PrefController.h"
 
 @implementation UiController
-static NSDictionary * network;
 static NSDictionary * OIDStrings;
 static NSString * slot;
 
@@ -23,28 +22,6 @@ static NSString * slot;
 	defaults = [NSUserDefaults standardUserDefaults];
 	[[statusField window]setFrameAutosaveName:@"controllerWindow"];	// save and restore the location of the window
     
-    NSString *slotPrefix = @".";
-    NSString *slotNumber = [defaults objectForKey:@"slot"];
-    if (slotNumber == nil) {
-        if (!prefController) {
-            prefController = [[PrefController alloc] init];
-        }
-        [prefController showWindow:self];
-    }
-    slot = [slotPrefix stringByAppendingString:slotNumber];
-
-	network = [NSDictionary dictionaryWithContentsOfFile:[[[NSBundle mainBundle] bundlePath]
-														  stringByAppendingString:@"/Contents/Resources/Network.plist"]];
-	if (network == nil)
-	{
-        NSLog (@"Error unable to open Network.plist");
-        [network release];
-    } 
-	else 
-	{
-		[network retain];
-	}
-	
 	OIDStrings = [NSDictionary dictionaryWithContentsOfFile:[[[NSBundle mainBundle] bundlePath]
 															 stringByAppendingString:@"/Contents/Resources/OIDStrings.plist"]];
 	if (OIDStrings == nil)
@@ -56,8 +33,7 @@ static NSString * slot;
 	{
 		[OIDStrings retain];
 	}
-//	slot = [OIDStrings objectForKey:@"slotNumber"];
-	
+ 
 	NSArray * inputs = ([NSArray arrayWithObjects:@"Ch 1", @"Ch 2", @"Ch 3", @"Ch 4",
 						 @"Ch 5", @"Ch 6", @"Ch 7", @"Ch 8", NULL]);
 	[inputs retain];
@@ -79,10 +55,20 @@ static NSString * slot;
 	[leftTotalPopUp addItemsWithTitles:inputs];
 	[rightTotalPopUp removeAllItems];
 	[rightTotalPopUp addItemsWithTitles:inputs];
-	
-	NSString *community = [network objectForKey:@"community"];
-//	NSString *host = [network objectForKey:@"host"];
+    
     NSString *host = [defaults objectForKey:@"ipAddress"];
+    NSString *slotPrefix = @".";
+    NSString *slotNumber = [defaults objectForKey:@"slot"];
+    if (slotNumber == nil || host == nil) {
+        if (!prefController) {
+            prefController = [[PrefController alloc] init];
+        }
+        [prefController showWindow:self];
+        return;
+    }
+    slot = [slotPrefix stringByAppendingString:slotNumber];
+	
+	NSString *community = @"private";
     
 	[session release];
 	session = [[SnmpSession alloc] initWithHost:host
@@ -100,18 +86,31 @@ static NSString * slot;
 		[rightSurroundPopUp setEnabled:YES];
 		[leftTotalPopUp setEnabled:YES];
 		[rightTotalPopUp setEnabled:YES];
+        [aDelayCheckBox setEnabled:YES];
+        [vDelayPopUp setEnabled:YES];
 		[self update];
 	}
 }
 
 
 - (void)update{
+    // make sure we have a connection
 	if (nil == session)
 	{
 		NSLog(@"NULL session in update");
 		return;
 	}
-	[leftPopUp selectItemAtIndex:[[session stringForOid:[[OIDStrings objectForKey:@"ch1ARouteOID"] stringByAppendingString:slot]] intValue]-3];
+    // test the first SNMP get to make sure we are talking to an evertz audio card
+    NSString * ch1ARoute = [session stringForOid:[[OIDStrings objectForKey:@"ch1ARouteOID"] stringByAppendingString:slot]];
+    if ([ch1ARoute isEqualToString:@"Error"]) {
+        if (!prefController) {
+            prefController = [[PrefController alloc] init];
+        }
+        [prefController showWindow:self];
+        [statusField setStringValue:@"Not Connected"];
+        return;
+    }
+	[leftPopUp selectItemAtIndex:[ch1ARoute intValue]-3];
 	[rightPopUp selectItemAtIndex:[[session stringForOid:[[OIDStrings objectForKey:@"ch1BRouteOID"] stringByAppendingString:slot]] intValue]-3];
 	[centerPopUp selectItemAtIndex:[[session stringForOid:[[OIDStrings objectForKey:@"ch2ARouteOID"] stringByAppendingString:slot]] intValue]-3];
 	[subWooferPopUp selectItemAtIndex:[[session stringForOid:[[OIDStrings objectForKey:@"ch2BRouteOID"] stringByAppendingString:slot]] intValue]-3];

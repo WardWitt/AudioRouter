@@ -33,4 +33,7 @@
     return self;
 }
 
+- (void)windowDidLoad
+{
+}
 @end
