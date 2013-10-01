@@ -12,6 +12,7 @@
 
 @synthesize ipAddress;
 @synthesize slot;
+@synthesize aDelay;
 
 #pragma mark -
 #pragma mark Startup and Shutdown Methods
