@@ -164,32 +164,36 @@ static NSString * slot;
 }
 
 - (IBAction)aDelay:(id)sender{
+    NSString *aDelay = [defaults objectForKey:@"aDelay"];
+    if (nil == aDelay) {
+        aDelay = @"66";
+    }
 	if(1 == [sender intValue])
 	{
 		// Ch 1A delay in ms
 		[session setOidIntValue:[[OIDStrings objectForKey:@"ch1ADelayOID"] stringByAppendingString:slot]
-						  value:[[OIDStrings objectForKey:@"msDelay"]intValue]];
+						  value:[aDelay intValue]];
 		// Ch 1B delay in ms
 		[session setOidIntValue:[[OIDStrings objectForKey:@"ch1BDelayOID"] stringByAppendingString:slot]
-						  value:[[OIDStrings objectForKey:@"msDelay"]intValue]];
+						  value:[aDelay intValue]];
 		// Ch 2A delay in ms
 		[session setOidIntValue:[[OIDStrings objectForKey:@"ch2ADelayOID"] stringByAppendingString:slot]
-						  value:[[OIDStrings objectForKey:@"msDelay"]intValue]];
+						  value:[aDelay intValue]];
 		// Ch 2B delay in ms
 		[session setOidIntValue:[[OIDStrings objectForKey:@"ch2BDelayOID"] stringByAppendingString:slot]
-						  value:[[OIDStrings objectForKey:@"msDelay"]intValue]];
+						  value:[aDelay intValue]];
 		// Ch 3A delay in ms
 		[session setOidIntValue:[[OIDStrings objectForKey:@"ch3ADelayOID"] stringByAppendingString:slot]
-						  value:[[OIDStrings objectForKey:@"msDelay"]intValue]];
+						  value:[aDelay intValue]];
 		// Ch 3B delay in ms
 		[session setOidIntValue:[[OIDStrings objectForKey:@"ch3BDelayOID"] stringByAppendingString:slot]
-						  value:[[OIDStrings objectForKey:@"msDelay"]intValue]];
+						  value:[aDelay intValue]];
 		// Ch 4A delay in ms
 		[session setOidIntValue:[[OIDStrings objectForKey:@"ch4ADelayOID"] stringByAppendingString:slot]
-						  value:[[OIDStrings objectForKey:@"msDelay"]intValue]];
+						  value:[aDelay intValue]];
 		// Ch 4B delay in ms
 		[session setOidIntValue:[[OIDStrings objectForKey:@"ch4BDelayOID"] stringByAppendingString:slot]
-						  value:[[OIDStrings objectForKey:@"msDelay"]intValue]];
+						  value:[aDelay intValue]];
 	}
 	else
 	{

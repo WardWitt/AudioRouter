@@ -12,8 +12,10 @@
 {
     IBOutlet NSTextField *ipAddress;
     IBOutlet NSTextField *slot;
+    IBOutlet NSTextField *aDelay;
 }
 @property (assign) IBOutlet NSTextField *ipAddress;
 @property (assign) IBOutlet NSTextField *slot;
+@property (assign) IBOutlet NSTextField *aDelay;
 
 @end
