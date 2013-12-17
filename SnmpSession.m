@@ -20,7 +20,6 @@ char *errorString;
     s.timeout = 40000;
 	session = snmp_open(&s);
 	if (NULL == session) {
-		[self release];
 		return nil;
 	}
 	return self;
@@ -29,7 +28,6 @@ char *errorString;
 -(void) dealloc
 {
 	snmp_close(session);
-	[super dealloc];
 }
 
 -(id) stringForOid:(NSString *)oidStr

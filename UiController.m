@@ -27,16 +27,13 @@ static NSString * slot;
 	if (OIDStrings == nil)
 	{
         NSLog (@"Error unable to open OIDStrings.plist");
-        [OIDStrings release];
     } 
 	else 
 	{
-		[OIDStrings retain];
 	}
  
 	NSArray * inputs = ([NSArray arrayWithObjects:@"Ch 1", @"Ch 2", @"Ch 3", @"Ch 4",
 						 @"Ch 5", @"Ch 6", @"Ch 7", @"Ch 8", NULL]);
-	[inputs retain];
 	
 	[statusField setStringValue:@""];
 	[leftPopUp removeAllItems];
@@ -70,7 +67,6 @@ static NSString * slot;
 	
 	NSString *community = @"private";
     
-	[session release];
 	session = [[SnmpSession alloc] initWithHost:host
 									  community:community];
 	if (nil == session)
